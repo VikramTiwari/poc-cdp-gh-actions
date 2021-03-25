@@ -5,7 +5,7 @@ jobs:
   test-runner:
     name: Launch
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 2
     container:
       image: node:14
       ports:
