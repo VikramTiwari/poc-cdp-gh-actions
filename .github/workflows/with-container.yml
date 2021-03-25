@@ -3,16 +3,15 @@ on: push
 
 jobs:
   test-runner:
-    name: Runner tests
+    name: Launch
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 5
     container:
       image: node:14
       ports:
         - 41111
     steps:
       - uses: actions/checkout@v2
-      # - uses: microsoft/playwright-github-action@v1
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
