@@ -26,6 +26,8 @@ function launchBrowser() {
       `--use-mock-keychain`,
       // Avoid potential instability of using Gnome Keyring or KDE wallet
       `--password-store=basic`,
+      // Run headless
+      `--headless`,
     ];
 
     subprocess = spawn(process.env.CHROME_PATH, flags, {
