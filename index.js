@@ -11,8 +11,6 @@ let subprocess;
 function launchBrowser() {
   try {
     const flags = [
-      // since launching on server
-      `--headless`,
       // enable connecting with CDP
       `--remote-debugging-port=${process.env.CHROME_CDP_PORT}`,
       // Disable syncing to a Google account
@@ -29,8 +27,6 @@ function launchBrowser() {
       `--use-mock-keychain`,
       // Avoid potential instability of using Gnome Keyring or KDE wallet
       `--password-store=basic`,
-      // Run headless
-      `--headless`,
     ];
 
     subprocess = spawn(process.env.CHROME_PATH, flags, {
