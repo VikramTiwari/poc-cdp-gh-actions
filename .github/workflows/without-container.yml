@@ -5,13 +5,13 @@ jobs:
   test-runner:
     name: Launch
     runs-on: ubuntu-latest
-    timeout-minutes: 2
+    timeout-minutes: 5
     strategy:
       matrix:
         node-version: [14.x]
     steps:
       - uses: actions/checkout@v2
-      # - uses: microsoft/playwright-github-action@v1
+      - uses: microsoft/playwright-github-action@v1
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
@@ -22,4 +22,4 @@ jobs:
         env:
           CI: true
       - name: Run
-        run: node index
+        run: xvfb-run --server-args="-screen 0 1024x768x24" -- node index
