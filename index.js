@@ -11,6 +11,9 @@ let subprocess;
 function launchBrowser() {
   try {
     const flags = [
+      // since launching on server
+      `--headless`,
+      // enable connecting with CDP
       `--remote-debugging-port=${process.env.CHROME_CDP_PORT}`,
       // Disable syncing to a Google account
       `--disable-sync`,
